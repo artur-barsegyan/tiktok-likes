@@ -1,0 +1,15 @@
+rock_manifest = {
+   doc = {
+      ["swim-paper.pdf"] = "6bb456e86e2fd516d6edcbc5fb5f5562"
+   },
+   lua = {
+      membership = {
+         ["events.lua"] = "eea2d2759cad5150bde8f1925e9ce51d",
+         ["members.lua"] = "f675bfe3755d4c284a0f1b186a7c0a49",
+         ["network.lua"] = "5ab53996f14025793d8f1fc573ee96ad",
+         ["options.lua"] = "b85e350256d44c2f0e6717df91026e34"
+      },
+      ["membership.lua"] = "6ad810f6ff91dd36cdc0bb32279426f7"
+   },
+   ["membership-2.2.0-1.rockspec"] = "03d31cb0d765c6c3bb1f1e58bf338b33"
+}

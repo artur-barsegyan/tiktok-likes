@@ -1,0 +1,62 @@
+.. _cartridge.test-helpers:
+
+===============================================================================
+Module *cartridge.test-helpers*
+===============================================================================
+
+Helpers for integration testing.
+
+
+This module extends  ``luatest.helpers``  with cartridge-specific classes and helpers.
+
+
+-------------------------------------------------------------------------------
+Fields
+-------------------------------------------------------------------------------
+
+
+.. _cartridge.test-helpers.Server:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Extended luatest.server class to run tarantool instance.
+
+
+
+
+**See also:**
+
+- cartridge.test-helpers.server
+
+.. _cartridge.test-helpers.Cluster:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Cluster
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Class to run and manage multiple tarantool instances.
+
+
+
+
+**See also:**
+
+- cartridge.test-helpers.cluster
+
+.. _cartridge.test-helpers.Etcd:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Etcd
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Class to run and manage etcd node.
+
+
+
+
+**See also:**
+
+- cartridge.test-helpers.etcd
+

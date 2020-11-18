@@ -1,0 +1,117 @@
+.. _cartridge.rpc:
+
+===============================================================================
+Module *cartridge.rpc*
+===============================================================================
+
+Remote procedure calls between cluster instances.
+
+
+
+
+-------------------------------------------------------------------------------
+Functions
+-------------------------------------------------------------------------------
+
+
+.. _cartridge.rpc.get_candidates:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+get_candidates (role_name[, opts])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+List instances suitable for performing a remote call.
+
+
+**Parameters:**
+
+- *role_name:* (`string <https://www.lua.org/manual/5.1/manual.html#5.4>`_)   
+- *opts:* 
+
+  - *leader_only:* (optional **boolean**) Filter instances which are leaders now.(default: **false**)  
+  - *healthy_only:* (optional **boolean**) Filter instances which have membership status healthy.(added in v1.1.0-11, default: **true**)  
+
+
+**Returns**:
+
+(`{string,...} <https://www.lua.org/manual/5.1/manual.html#5.4>`_) URIs
+
+
+.. _cartridge.rpc.call:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+call (role_name, fn_name[, args[, opts]])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Perform a remote procedure call. 
+Find a suitable healthy instance with an enabled role and
+perform a [ ``net.box``   ``conn:call`` ](
+https://tarantool.io/en/doc/latest/reference/reference_lua/net_box/#net-box-call)
+on it.
+
+
+
+**Parameters:**
+
+- *role_name:* (`string <https://www.lua.org/manual/5.1/manual.html#5.4>`_)   
+- *fn_name:* (`string <https://www.lua.org/manual/5.1/manual.html#5.4>`_)   
+- *args:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)  (optional) 
+- *opts:* 
+
+  - *prefer_local:* (optional **boolean**) Don't perform a remote call if possible. When the role is enabledlocally and current instance is healthy the remote netbox call issubstituted with a local Lua function call. When the option isdisabled it never tries to perform call locally and always usesnetbox connection, even to connect self.(default: **true**)  
+  - *leader_only:* (optional **boolean**) Perform a call only on the replica set leaders.(default: **false**)  
+  - *uri:* (optional `string <https://www.lua.org/manual/5.1/manual.html#5.4>`_) Force a call to be performed on this particular uri.Disregards member status and  ``opts.prefer_local`` .Conflicts with  ``opts.leader_only = true`` .(added in v1.2.0-63)  
+  - *remote_only:*  (*deprecated*) Use  ``prefer_local``  instead.  
+  - *timeout:*  passed to  ``net.box``   ``conn:call``  options.  
+  - *buffer:*  passed to  ``net.box``   ``conn:call``  options.  
+  - *on_push:*  passed to  ``net.box``   ``conn:call``  options.  
+  - *on_push_ctx:*  passed to  ``net.box``   ``conn:call``  options.  
+
+
+**Returns**:
+
+`conn:call()` result
+
+
+**Or**
+
+(**nil**) 
+
+(`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_) Error description
+
+
+-------------------------------------------------------------------------------
+Local Functions
+-------------------------------------------------------------------------------
+
+
+.. _cartridge.rpc.get_connection:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+get_connection (role_name[, opts])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Connect to an instance with an enabled role.
+
+
+**Parameters:**
+
+- *role_name:* (`string <https://www.lua.org/manual/5.1/manual.html#5.4>`_)   
+- *opts:* 
+
+  - *prefer_local:* (optional **boolean**)   
+  - *leader_only:* (optional **boolean**)   
+
+
+**Returns**:
+
+``net.box``  connection
+
+
+**Or**
+
+(**nil**) 
+
+(`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_) Error description
+
+

@@ -1,0 +1,155 @@
+.. _cartridge.roles:
+
+===============================================================================
+Module *cartridge.roles*
+===============================================================================
+
+Role management (internal module).
+
+
+
+The module consolidates all the role management functions:
+``register_role`` , some getters,  ``validate_config``  and  ``apply_config`` .
+
+The module is almost stateless, it's only state is a collection of
+registered roles.
+
+(**Added** in v1.2.0-20)
+
+
+-------------------------------------------------------------------------------
+Local Functions
+-------------------------------------------------------------------------------
+
+
+.. _cartridge.roles.get_all_roles:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+get_all_roles ()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+List all registered roles. 
+
+Hidden and permanent roles are listed too.
+
+
+
+
+**Returns**:
+
+(`{string,..} <https://www.lua.org/manual/5.1/manual.html#5.4>`_) 
+
+
+.. _cartridge.roles.get_known_roles:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+get_known_roles ()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+List registered roles names. 
+
+Hidden roles are not listed as well as permanent ones.
+
+
+
+
+**Returns**:
+
+(`{string,..} <https://www.lua.org/manual/5.1/manual.html#5.4>`_) 
+
+
+.. _cartridge.roles.get_enabled_roles:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+get_enabled_roles (roles)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Roles to be enabled on the server. 
+This function returns all roles that will be enabled
+including their dependencies (bot hidden and not)
+and permanent roles.
+
+
+
+**Parameters:**
+
+- *roles:* (`{string,...} <https://www.lua.org/manual/5.1/manual.html#5.4>`_ or `{[string]=boolean,...} <https://www.lua.org/manual/5.1/manual.html#5.4>`_)   
+
+**Returns**:
+
+(`{[string]=boolean,...} <https://www.lua.org/manual/5.1/manual.html#5.4>`_) 
+
+
+.. _cartridge.roles.get_role_dependencies:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+get_role_dependencies (role_name)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+List role dependencies. 
+Including sub-dependencies.
+
+
+
+**Parameters:**
+
+- *role_name:* (`string <https://www.lua.org/manual/5.1/manual.html#5.4>`_)   
+
+**Returns**:
+
+(`{string,..} <https://www.lua.org/manual/5.1/manual.html#5.4>`_) 
+
+
+.. _cartridge.roles.validate_config:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+validate_config (conf_new, conf_old)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Validate configuration by all roles.
+
+
+**Parameters:**
+
+- *conf_new:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+- *conf_old:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+
+**Returns**:
+
+(**boolean**) true
+
+
+**Or**
+
+(**nil**) 
+
+(`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_) Error description
+
+
+.. _cartridge.roles.apply_config:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+apply_config (conf, opts, is_master)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Apply the role configuration.
+
+
+**Parameters:**
+
+- *conf:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+- *opts:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+- *is_master:* (**boolean**)   
+
+**Returns**:
+
+(**boolean**) true
+
+
+**Or**
+
+(**nil**) 
+
+(`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_) Error description
+
+

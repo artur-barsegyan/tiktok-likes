@@ -1,0 +1,58 @@
+.. _cartridge.issues:
+
+===============================================================================
+Module *cartridge.issues*
+===============================================================================
+
+Monitor issues across cluster instances.
+
+
+
+Cartridge detects the following problems:
+
+Replication:
+
+* "Replication from ... to ... isn't running" -
+  when  ``box.info.replication.upstream == nil`` ;
+* "Replication from ... to ... is stopped/orphan/etc. (...)";
+* "Replication from ... to ...: high lag" -
+  when  ``upstream.lag > box.cfg.replication_sync_lag`` ;
+* "Replication from ... to ...: long idle" -
+  when  ``upstream.idle > box.cfg.replication_timeout`` ;
+
+
+Failover:
+
+* "Can't obtain failover coordinator (...)";
+* "There is no active failover coordinator";
+* "Failover is stuck on ...: Error fetching appointments (...)";
+* "Failover is stuck on ...: Failover fiber is dead" -
+  this is likely a bug;
+
+
+
+-------------------------------------------------------------------------------
+Tables
+-------------------------------------------------------------------------------
+
+
+.. _cartridge.issues.limits:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+limits
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Thresholds for issuing warnings. 
+All settings are local, not clusterwide. They can be changed with
+corresponding environment variables ( ``TARANTOOL_*`` ) or command-line
+arguments. See :ref:`cartridge.argparse <cartridge.argparse>` module for details.
+
+
+
+**Fields:**
+
+- *fragmentation_threshold_critical:* (**number**) *default*: 0.9.  
+- *fragmentation_threshold_warning:* (**number**) *default*: 0.6.  
+- *clock_delta_threshold_warning:* (**number**) *default*: 5.  
+
+

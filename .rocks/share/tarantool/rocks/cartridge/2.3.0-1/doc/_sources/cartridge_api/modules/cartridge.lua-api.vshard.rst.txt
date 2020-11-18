@@ -1,0 +1,39 @@
+.. _cartridge.lua-api.vshard:
+
+===============================================================================
+Module *cartridge.lua-api.vshard*
+===============================================================================
+
+Administration functions (vshard related).
+
+
+
+
+-------------------------------------------------------------------------------
+Functions
+-------------------------------------------------------------------------------
+
+
+.. _cartridge.lua-api.vshard.bootstrap_vshard:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bootstrap_vshard ()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Call  ``vshard.router.bootstrap()`` . 
+This function distributes all buckets across the replica sets.
+
+
+
+**Returns**:
+
+(**boolean**) `true`
+
+
+**Or**
+
+(**nil**) 
+
+(`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_) Error description
+
+

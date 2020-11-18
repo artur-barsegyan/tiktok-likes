@@ -1,0 +1,166 @@
+.. _cartridge.topology:
+
+===============================================================================
+Module *cartridge.topology*
+===============================================================================
+
+Topology validation and filtering.
+
+
+
+
+-------------------------------------------------------------------------------
+Functions
+-------------------------------------------------------------------------------
+
+
+.. _cartridge.topology.cluster_is_healthy:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cluster_is_healthy ()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Check the cluster health. 
+It is healthy if all instances are healthy.
+
+The function is designed mostly for testing purposes.
+
+
+
+
+**Returns**:
+
+(**boolean**) true / false
+
+
+-------------------------------------------------------------------------------
+Local Functions
+-------------------------------------------------------------------------------
+
+
+.. _cartridge.topology.get_leaders_orded:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+get_leaders_orded (topology_cfg, replicaset_uuid, new_order)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Get full list of replicaset leaders. 
+
+Full list is composed of:
+
+* New order array
+* Initial order from topology_cfg (with no repetitions)
+* All other servers in the replicaset, sorted by uuid, ascending
+
+
+Neither  ``topology_cfg``  nor  ``new_order``  tables are modified.
+New order validity is ignored too.
+
+
+
+**Parameters:**
+
+- *topology_cfg:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+- *replicaset_uuid:* (`string <https://www.lua.org/manual/5.1/manual.html#5.4>`_)   
+- *new_order:* (optional `table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+
+**Returns**:
+
+(`{string,...} <https://www.lua.org/manual/5.1/manual.html#5.4>`_) array of leaders uuids
+
+
+.. _cartridge.topology.validate:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+validate (topology_new, topology_old)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Validate topology configuration.
+
+
+**Parameters:**
+
+- *topology_new:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+- *topology_old:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+
+**Returns**:
+
+(**boolean**) true
+
+
+**Or**
+
+(**nil**) 
+
+(`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_) Error description
+
+
+.. _cartridge.topology.find_server_by_uri:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+find_server_by_uri (topology_cfg, uri)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Find the server in topology config. 
+
+(**Added** in v1.2.0-17)
+
+
+
+**Parameters:**
+
+- *topology_cfg:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+- *uri:* (`string <https://www.lua.org/manual/5.1/manual.html#5.4>`_)   
+
+**Returns**:
+
+(**nil** or `string <https://www.lua.org/manual/5.1/manual.html#5.4>`_) `instance_uuid` found
+
+
+.. _cartridge.topology.probe_missing_members:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+probe_missing_members (servers)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Send UDP ping to servers missing from membership table.
+
+
+**Parameters:**
+
+- *servers:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+
+**Returns**:
+
+(**boolean**) true
+
+
+**Or**
+
+(**nil**) 
+
+(`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_) Error description
+
+
+.. _cartridge.topology.get_fullmesh_replication:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+get_fullmesh_replication (topology_cfg, replicaset_uuid)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Get replication config to set up full mesh. 
+
+(**Added** in v1.2.0-17)
+
+
+
+**Parameters:**
+
+- *topology_cfg:* (`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_)   
+- *replicaset_uuid:* (`string <https://www.lua.org/manual/5.1/manual.html#5.4>`_)   
+
+**Returns**:
+
+(`table <https://www.lua.org/manual/5.1/manual.html#5.5>`_) 
+
+

@@ -1,0 +1,26 @@
+rock_manifest = {
+   doc = {
+      LICENSE = "1eafebb145f237f109dc0512bfaad1dc",
+      ["README.md"] = "1be0a122ab47f05483157f98cbfac9eb"
+   },
+   lua = {
+      vshard = {
+         ["cfg.lua"] = "80c88de867650eef53b64f58f129130c",
+         ["consts.lua"] = "c8ee106dffc7575b7e5228c0bb633702",
+         ["error.lua"] = "e5eb17c8830c6560ffb07515b120f918",
+         ["hash.lua"] = "1f38b7cfa09db70b8762a9db745126e2",
+         ["init.lua"] = "853f5bad994999828979b6a5cb964551",
+         ["lua_gc.lua"] = "b469e85a61d202a99920bd1ba67099ab",
+         ["replicaset.lua"] = "209fb7a325d0991d8a52ed239676ddac",
+         router = {
+            ["init.lua"] = "bcad5f03d2c90b41f57f56ef5d347e5a"
+         },
+         storage = {
+            ["init.lua"] = "09b4568fef99a95112388f3be30481c0",
+            ["reload_evolution.lua"] = "06aa5af70af8a16850a9d9c69b98fe97"
+         },
+         ["util.lua"] = "5e2b04eabc3e48743a12e3746e4c8e53"
+      }
+   },
+   ["vshard-0.1.16-1.rockspec"] = "14553babc0297564350e40687ffdb5ae"
+}

@@ -1,0 +1,63 @@
+rock_manifest = {
+   doc = {
+      monitoring = {
+         ["api_reference.rst"] = "de5175b8b37fadd1f7660ae51302698a",
+         ["getting_started.rst"] = "5fc19ded0bab661d15f140e40b3b2432",
+         ["index.rst"] = "96eaa297e0ca360066d33146439b0222",
+         ["plugins.rst"] = "8b0da07f696740b4ebe924f485d4950b"
+      }
+   },
+   lua = {
+      cartridge = {
+         roles = {
+            ["metrics.lua"] = "95f135a04447923d181509908a77458c"
+         }
+      },
+      metrics = {
+         collectors = {
+            ["average.lua"] = "40093cd481a45682cc8c76b63d111588",
+            ["counter.lua"] = "e7e5fbc99aceb63c68bb8d02e135e3fc",
+            ["gauge.lua"] = "366056d7f9108ceb2e76653669fb0d74",
+            ["histogram.lua"] = "8ada4b75e43daefaec4eeb9f131c5208",
+            ["shared.lua"] = "61943f1c33e8c03768bdb76e626b8f6b",
+            ["summary.lua"] = "ff237917fd5f96698a672594c9f3190f"
+         },
+         default_metrics = {
+            tarantool = {
+               ["fibers.lua"] = "0a1728fbce7451975679989998d44991",
+               ["info.lua"] = "536bb2fc2cbe87fafe378919bda78234",
+               ["init.lua"] = "7ef3f39b07e303ab1fbc75bc9de44529",
+               ["memory.lua"] = "931f615124f31ef4c227bfceb6f484c5",
+               ["network.lua"] = "eb152246d7363189b6cc3602fb70f6e7",
+               ["operations.lua"] = "0196a854af531e981e10b6793f0475f8",
+               ["replicas.lua"] = "bf3b32966d90d406422985bd7b5c37e9",
+               ["runtime.lua"] = "4c626fa378efc808af9f650adb184085",
+               ["slab.lua"] = "1fbce664c572b2056aff740b3e6b5afa",
+               ["spaces.lua"] = "a9bfbb0a2a258a24035b99b3348a3853",
+               ["system.lua"] = "9baff174136941ae2e62b9386bb916f3"
+            }
+         },
+         ["http_middleware.lua"] = "9e570feef5bc9bc419fc366b9918065c",
+         ["init.lua"] = "2858e8f8222d8efd68d9bfe34ccbc86c",
+         plugins = {
+            graphite = {
+               ["init.lua"] = "18f0424aeea4232d85c74aa5338dd31b"
+            },
+            json = {
+               ["init.lua"] = "a614c97e1aa98ce5b52a87f676147b7a"
+            },
+            prometheus = {
+               ["init.lua"] = "e3d13b7656b54522ee2ec395d93c1ca4"
+            }
+         },
+         psutils = {
+            ["cpu.lua"] = "b29313cfcc9bf6c1f9748c82c1bff2de",
+            ["psutils_linux.lua"] = "af33182164c8112a7fc877de9e14d1dd"
+         },
+         ["quantile.lua"] = "b858971278fba68e488666c8bafea79f",
+         ["registry.lua"] = "c06f2e51f80022ff466afbe85a126f99",
+         ["utils.lua"] = "4f0785ea7479f3456ec5d9cd3521f41a"
+      }
+   },
+   ["metrics-0.5.0-1.rockspec"] = "b7ae41225695e2555a0aeb1ea206607c"
+}

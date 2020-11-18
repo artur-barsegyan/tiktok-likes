@@ -1,0 +1,3 @@
+#!/bin/sh
+
+LUAROCKS_SYSCONFDIR='/usr/local/etc/tarantool/rocks' exec '/usr/local/Cellar/tarantool/HEAD-17621b0_1/bin/tarantool' -e 'package.path="/Users/a.barsegyan/Documents/try_tarantool/tiktok-likes/.rocks/share/tarantool/?.lua;/Users/a.barsegyan/Documents/try_tarantool/tiktok-likes/.rocks/share/tarantool/?/init.lua;"..package.path;package.cpath="/Users/a.barsegyan/Documents/try_tarantool/tiktok-likes/.rocks/lib/tarantool/?.so;"..package.cpath;local k,l,_=pcall(require,"luarocks.loader") _=k and l.add_context("cartridge","2.3.0-1")' '/Users/a.barsegyan/Documents/try_tarantool/tiktok-likes/.rocks/share/tarantool/rocks/cartridge/2.3.0-1/bin/stateboard' "$@"
