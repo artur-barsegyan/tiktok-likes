@@ -6,3 +6,4 @@
 
 # For example:
 # tarantoolctl rocks make --chdir ./third_party/my-custom-rock-module
+tarantoolctl rocks install space-explorer-scm-1.all.rock
